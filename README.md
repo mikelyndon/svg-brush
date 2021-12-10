@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# SVG Brush
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a "simple" svg brush app using [valtio](https://github.com/pmndrs/valtio) for state management. A lot of the code and ideas come directly from [Daishi Kato's, katachidraw](https://github.com/dai-shi/katachidraw) and his egghead course - [Manage Application State with Jotai Atoms](https://egghead.io/courses/manage-application-state-with-jotai-atoms-2c3a29f0).
+
+[Demo](https://svg-brush.vercel.app/)
+
+If you're a grown-up, unlike me, and use typescript just use the excellent TLDraw.
 
 ## Available Scripts
 
