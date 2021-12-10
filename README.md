@@ -4,7 +4,7 @@ This is a "simple" svg brush app using [valtio](https://github.com/pmndrs/valtio
 
 [Demo](https://svg-brush.vercel.app/)
 
-If you're a grown-up, unlike me, and use typescript just use the excellent TLDraw.
+If you're a grown-up, unlike me, and use typescript just use the excellent [TLDraw](https://github.com/tldraw/tldraw).
 
 ## Available Scripts
 
