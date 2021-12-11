@@ -12,12 +12,12 @@ export default function SvgCanvas({ width, height }) {
   const [allowErasing, setAllowErasing] = useState(false);
   const [stroke, setStroke] = useState([]);
 
-  const getMousePosition = (evt) => {
+  const getPointerPosition = (evt) => {
     let CTM = evt.target.getScreenCTM();
     return [(evt.clientX - CTM.e) / CTM.a, (evt.clientY - CTM.f) / CTM.d];
   };
 
-  const handleMouseDown = (e) => {
+  const handlePointerDown = (e) => {
     // eslint-disable-next-line default-case
     switch (snapshot.toolbar_mode) {
       case "sketch":
@@ -33,7 +33,7 @@ export default function SvgCanvas({ width, height }) {
     }
   };
 
-  const handleMouseUp = (e) => {
+  const handlePointerUp = (e) => {
     // eslint-disable-next-line default-case
     switch (snapshot.toolbar_mode) {
       case "sketch":
@@ -53,12 +53,12 @@ export default function SvgCanvas({ width, height }) {
     }
   };
 
-  const handleMouseMove = (e) => {
+  const handlePointerMove = (e) => {
     // eslint-disable-next-line default-case
     switch (snapshot.toolbar_mode) {
       case "sketch":
         if (allowSketching) {
-          const p = getMousePosition(e);
+          const p = getPointerPosition(e);
           setStroke([...stroke, p]);
         }
         break;
@@ -82,9 +82,9 @@ export default function SvgCanvas({ width, height }) {
         width={width}
         height={height}
         viewBox={`0 0 ${width} ${height}`}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
+        onPointerDown={handlePointerDown}
+        onPointerUp={handlePointerUp}
+        onPointerMove={handlePointerMove}
       >
         <rect width={width} height={height} fill="#eee" />
         <SvgShapes />
