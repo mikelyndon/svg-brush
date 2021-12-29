@@ -2,6 +2,7 @@ import { useState } from "react";
 import SvgShape from "./svgShape";
 import SvgShapes from "./svgShapes";
 import Toolbar from "./toolbar";
+import { Box } from "@mui/material";
 
 import { actions, store, useSnapshot } from "../state";
 
@@ -18,6 +19,8 @@ export default function SvgCanvas({ width, height }) {
   };
 
   const handlePointerDown = (e) => {
+    console.log(e.pointerId);
+    e.target.setPointerCapture(e.pointerId);
     // eslint-disable-next-line default-case
     switch (snapshot.toolbar_mode) {
       case "sketch":
@@ -76,7 +79,10 @@ export default function SvgCanvas({ width, height }) {
   };
 
   return (
-    <>
+    <Box
+      component="div"
+      sx={{ touchAction: "none", pointerEvents: "all", overflow: "clip" }}
+    >
       <Toolbar />
       <svg
         width={width}
@@ -95,6 +101,6 @@ export default function SvgCanvas({ width, height }) {
           colour={snapshot.current_colour}
         />
       </svg>
-    </>
+    </Box>
   );
 }
